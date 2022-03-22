@@ -1,18 +1,31 @@
-
 #include <iostream>
 
-//int main()
-//{
- //   std::cout << "Hello World!\n";
-//}
+int binarySearch(int arr[], int target) {
+    int low = 0;
+    int high = sizeof(arr) / sizeof(arr[0]);
+    int mid = low + high;
+    int guess = arr[mid];
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+    while (low <= high) {
+        if (guess == target) {
+            return mid;
+        }
+        else if (guess > high) {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    }
+
+}
+
+int main() {
+
+    int arr2[5] = { 1,2,3,4,5 };
+    //std::cout<< sizeof(arr)/sizeof(arr[0]);
+    std::cout << binarySearch(arr2, 3);
+
+    return 0;
+}
